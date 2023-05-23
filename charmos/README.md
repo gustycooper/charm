@@ -1,0 +1,3 @@
+# Charmos
+Charmos is the Charm operating system. The are two versions of Charmos. [os.s - basic OS](wiki/BasicOs) is not really an OS, but does provide some services. This is used when learning assembly language programming in a computer architecture class. `os.s` allows programmers to call printf to print variables to the display.  [chaos.s - process OS](wiki/ProcessOs) is an OS that manages processes. Has a round-robin scheduler. Also provides a more robust API that `os.s`. You cna read more about Charmos in the [Charm Wiki](https://github.com/gustycooper/charm/wiki). If you prefer to read a contiguous document, you can at [Charm Guide](https://gusty.bike/charm.html).
+

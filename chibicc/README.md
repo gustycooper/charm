@@ -1,12 +1,3 @@
-# chibicc for Charm
+# Chibicc
+Chibicc is the Charm C compiler. Chibicc translates C code to Charm assembly (or Charm binary). I modified [Rui Ueyamm's chibicc](https://github.com/rui314/chibicc) to generate Charm Assembly. For the most part, `chibicc` works, but the generated code follows a stack machine and does not efficiently use the registers. At this time chibicc is more of a novelty. Someday, I may improve the code generator and use it for develop chaos. More information about Chibicc are provided in the [Charm Wiki](https://github.com/gustycooper/charm/wiki). If you prefer to read a contiguous document, you can at [Charm Guide](https://gusty.bike/charm.html).
 
-Rui Ueyama's official chibicc is located on GitHub
-[Rui Ueyamm's chibicc](https://github.com/rui314/chibicc)
-
-I modified chibicc to generate Charm assembly code. Charm is a teaching tool that consits of an ISA, assembly language, assembler, and emulator. With chibicc, Charm also has a C compiler.
-
-chibicc is a full-blown C compiler that implements most C11 features and can compile several real-world applications. At this time, Charm and chibicc supports integers. 
-
-Rui's is writing a book to accompany chibicc. The book is about the C compiler and the low-level programming.  If you like chibicc, please consider purchasing a copy of the book when it becomes available!
-
-Rui's GitHub describes pronouncing chibicc as _chee bee cee cee_. "chibi" means "mini" or "small" in Japanese. "cc" stands for C compiler.
