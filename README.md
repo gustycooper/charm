@@ -1,2 +1,3 @@
-# charm
-ISA and tools for learning assembly programming and OS concepts.
+# Charm
+Charm defines an Instruction Set Architecture (ISA) and tools for learning assembly programming and operating system concepts. Charm has a collection of C code that implement a toolchain for programming and running Charm programs. The Charm toolchain can be built and run on Linux or MacOS. If you are a Windows computer user, you can install Windows Subystem for Linux and run the Charm toolchain. The [Charm Wiki](https://github.com/gustycooper/charm/wiki) contains documentation describing Charm. If you prefer to read a contiguous document, you can at [Charm Guide](https://gusty.bike/charm.html).
+
