@@ -262,7 +262,6 @@ void chemuscanf(char *str) {
 
 }
 
-// TODO - currently printf("%f" ) works with one %f, update to allow %s %f, %d %f, %f %f
 // The address in registers[1] is a local chemu address
 // NOTE: size of format string must be < 80 (0 to 79 index)
 void chemuioi(int op2) {
@@ -337,10 +336,8 @@ void chemuioi(int op2) {
 /******************************************************************
  ************************  BREAKPOINT *****************************
  ******************************************************************/
-// TODO - add more breakpoints #define NUM_BREAKPOINTS 2
-// static int breakpoints[NUM_BREAKPOINTS]; // allow 2 break points
 
-// global breakpoint - main() changes this via b command
+// breakpoint0 and breakpoint1 - command changes these variables via b and b1 command
 int breakpoint0 = -1, breakpoint1 = -1; // >0 is address of a breakpoint
 static int breakpoint0executed = 0, breakpoint1executed = 0;
 static int memaddr_changed = 0, memval_before = 0, memval_after = 0;

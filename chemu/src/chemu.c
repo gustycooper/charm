@@ -5,34 +5,6 @@
 #include <ncurses.h>
 #include "cpu.h"
 
-/*
-TODO 1. Create displayw(int w, char *fmt, ...) to replace
-         char temp[80];
-         sprintf(temp, "Terminal - LINES: %d, COLS: %d", LINES, COLS);
-         addresult(temp);
-        Then update code throughout to call displayw
-This will use int vsprintf(char *str, const char *format, va_list arg)
-The below is from codegen.c of chibicc
-__attribute__((format(printf, 1, 2)))
-static void println(char *fmt, ...) {
-  //printf("in println\n");
-  va_list ap;
-  va_start(ap, fmt);
-  //vfprintf(output_file, fmt, ap);
-  vprintf(fmt, ap);
-  va_end(ap);
-  //fprintf(output_file, "\n");
-  printf("\n");
-}
-
-TODO 2. Use color to show changes in regs after each step
-     3. Mark the PC on Instructions with color - done
-     4. Process delete key in commands window - done
-     5. Process up / down arrows in commands window - done
-     6. Create a scrollable results window - done
-TODO 7. Change prompt to indicated waiting and scanf
- */
-
 //#define NCURSES 1
 
 // bg_val used to create white letters/black backgroud or black letters/white background
