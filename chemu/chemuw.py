@@ -87,9 +87,14 @@ def parse_instructions(instrs):
     return instrs, branch
 
 # method called when the app starts
-@app.before_first_request
-def session_init():
-    session['initialized'] = False
+
+# before_first_request is removed from flask 2.3
+#@app.before_first_request
+#def session_init():
+#    session['initialized'] = False
+
+#with app.app_context():
+#    session['initialized'] = False
 
 def init_chemu(input_filename, os_filename):
     # initialize the emulator
