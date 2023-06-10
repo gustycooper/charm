@@ -98,7 +98,7 @@ def parse_instructions(instrs):
 
 def init_chemu(input_filename, os_filename, dash):
     # initialize the emulator
-    result = chemu.init(input_filename, os_filename, dash) # HERE
+    result = chemu.init(input_filename, os_filename, dash)
     floaties = result['floaties']
 
     instructions, branch = parse_instructions(result['instructions'])
@@ -130,7 +130,11 @@ def pick_files():
         if os == 'none':
             os = None
         elif os == 'default':
-            os = 'os.o'
+            if dash == 'first':
+                os_file = 'os.o'
+            else:
+                os_file = 'chaos.o'
+            os = 'uploads/' + os_file
         else:
             os_file = request.files['os-file']
             os = 'uploads/' + os_file.filename

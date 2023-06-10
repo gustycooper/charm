@@ -18,18 +18,18 @@
         <div>
             <form name="files" action="/init" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <p>
-                    <h2>Input .o file to run:</h2>
+                    <h2>Input user program (.o file) to run:</h2>
                     <input type="file" id="input-file-picker" name="input-file" accept=".o">
                 </p>
                 <p>
-                    <h2>OS file:</h2>
+                    <h2>Select OS to run:</h2>
                     <div>
                         <input type="radio" name="os-choice" id="no-os" value="none" onclick="onChooseOSDeselected()" checked>
                         <label for="no-os">None</label>
                     </div>
                     <div>
                         <input type="radio" name="os-choice" id="default-os" value="default" onclick="onChooseOSDeselected()">
-                        <label for="default-os">Default OS</label>
+                        <label for="default-os">Default OS (-o: os.o, -m: chaos.o)</label>
                     </div>
                     <div>
                         <input type="radio" name="os-choice" id="pick-os" value="user" onclick="onChooseOSSelected()">
@@ -39,7 +39,7 @@
 
                 </p>
                 <p>
-                    <h2>OS load options:</h2>
+                    <h2>Select OS load options:</h2>
                     <div>
                         <input type="radio" name="dash-option" id="use-o-checkbox" value="first" onclick="onDashMSelected()" checked>
                         <label for="use-m=radio">Load OS before user .o file (-o option)</label>
