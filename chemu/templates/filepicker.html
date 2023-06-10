@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>
-            Welcome to Chemu!
+            Welcome to Chemu! TEST
         </h1>
         <h2>
             Please choose a .o file to run.
@@ -18,7 +18,7 @@
         <div>
             <form name="files" action="/init" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <p>
-                    <h2>Input file:</h2>
+                    <h2>Input .o file to run:</h2>
                     <input type="file" id="input-file-picker" name="input-file" accept=".o">
                 </p>
                 <p>
@@ -36,11 +36,18 @@
                         <label for="pick-os">Choose file:</label>
                         <input type="file" id="os-file-picker" name="os-file" accept=".o" disabled>
                     </div>
-                    <!-- <div class="inline-div">
-                        <span>Load OS</span>
-                        <input type="checkbox" id="use-os-checkbox">
-                    </div> -->
 
+                </p>
+                <p>
+                    <h2>OS load options:</h2>
+                    <div>
+                        <input type="radio" name="dash-option" id="use-o-checkbox" value="first" onclick="onDashMSelected()" checked>
+                        <label for="use-m=radio">Load OS before user .o file (-o option)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="dash-option" id="use-m-checkbox" value="second" onclick="onDashOSelected()">
+                        <label for="use-m=radio">Load OS after user .o file (-m option)</label>
+                    </div>
                 </p>
                 <input type="submit" value="Run">
             </form>

@@ -132,7 +132,7 @@ h2 {
 }
 
 main input, main button {
-    width: 45%;
+    width: 30%;
     font-family: Cousine;
     font-size: 1.2vw;
     padding: 0.3vw;
@@ -196,6 +196,20 @@ main input, main button {
 }
 
 #step-over-button:active {
+    background-color: var(--button-press-color);
+}
+
+#run-button {
+    background-color: var(--mid);
+    color: var(--font-color);
+    border: 1px solid var(--light);
+}
+
+#run-button:hover {
+    background-color: var(--button-hover-color);
+}
+
+#run-button:active {
     background-color: var(--button-press-color);
 }
 

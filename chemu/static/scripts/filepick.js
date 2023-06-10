@@ -1,5 +1,6 @@
 var chooseInputFilePicker;
 var osOptionRadio;
+var osDashOptionRadio;
 var chooseOSFilePicker;
 
 function validateForm() {
@@ -16,16 +17,29 @@ function validateForm() {
 
 function onChooseOSDeselected() {
     chooseOSFilePicker.disabled = true;
+    chooseOSFilePicker.dashm = false;
 }
 
 function onChooseOSSelected() {
     chooseOSFilePicker.disabled = false;
+    chooseOSFilePicker.dashm = false;
+}
+
+function onDashMSelected() {
+    chooseOSFilePicker.dashm = true;
+    chooseOSFilePicker.dasho = false;
+}
+
+function onDashOSelected() {
+    chooseOSFilePicker.dashm = false;
+    chooseOSFilePicker.dasho = true;
 }
 
 function onLoad() {
     chooseOSFilePicker = $('#os-file-picker')[0];
     chooseInputFilePicker = $('#input-file-picker')[0];
     osOptionRadio = document.forms["files"]["os-choice"];
+    osDashOptionRadio = document.forms["files"]["dash-option"];
     console.log(document.cookie);
 }
 

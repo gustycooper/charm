@@ -96,9 +96,9 @@ def parse_instructions(instrs):
 #with app.app_context():
 #    session['initialized'] = False
 
-def init_chemu(input_filename, os_filename):
+def init_chemu(input_filename, os_filename, dash):
     # initialize the emulator
-    result = chemu.init(input_filename, os_filename)
+    result = chemu.init(input_filename, os_filename, dash) # HERE
     floaties = result['floaties']
 
     instructions, branch = parse_instructions(result['instructions'])
@@ -125,6 +125,8 @@ def pick_files():
     elif request.method == "POST":
         os = request.form['os-choice']
         print(os)
+        dash = request.form['dash-option']
+        print(dash)
         if os == 'none':
             os = None
         elif os == 'default':
@@ -137,7 +139,7 @@ def pick_files():
         fname = 'uploads/' + f.filename
         file = fname
         f.save(fname)
-        init_chemu(fname, os)
+        init_chemu(fname, os, dash)
         return redirect(url_for('home'))
 
 @app.route('/', methods=['GET', 'POST'])
@@ -165,6 +167,10 @@ def home():
         halted = False
         dump = []
         l_instructions = []
+        if len(command) == 1 and command[0] == 's':
+            command = 's '
+        if len(command) == 2 and command[0] == 's' and command[1] == 'm':
+            command = 'sm '
         if not result['registers'] and ((command[0] == 's' and command[1] == ' ') or (command[0] == 's' and command[1] == 'm' and command[2] == ' ')):
             # emulator halted if no registers were updated on a step command
             # sm and st are commands with command[1] != ' '

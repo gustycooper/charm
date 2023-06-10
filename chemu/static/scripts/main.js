@@ -96,6 +96,13 @@ function stepOverPressed() {
 }
 
 /**
+ * Function called when the Step Over button is pressed
+ */
+function runPressed() {
+    runCommand('run');
+}
+
+/**
  * Updates the instruction display with a frame of data
  * received by the server
  * @param {*} frame 

@@ -409,25 +409,36 @@ static PyObject *grab_dump_updates() {
  * @return None
  */
 static PyObject *method_init(PyObject *self, PyObject *args) {
-    char *input_file, *os_file;
+    char *input_file, *os_file, *dash;
     // z so os_file can be None
-    if (!PyArg_ParseTuple(args, "sz", &input_file, &os_file)) {
+    if (!PyArg_ParseTuple(args, "szs", &input_file, &os_file, &dash)) { // HERE
         return NULL;
     }
+
+    printf("HERE: %s %s %s\n", input_file, os_file, dash);
 
     for (int i = 0; i < 17; i++) {
         registers_last_step[i] = 0;
     }
 
-    load_memory(input_file);
-
-    // load OS second for -m option
-    // TODO: Add -m and -o to charmweb
     if (os_file != NULL && strlen(os_file) > 0) {
-        load_memory(os_file);
-        set_cpsr(OS);
-        //set_cpsr(U);
-        set_rupt(0xff00);
+        if (strcmp(dash, "second") == 0) {  // load os after user .o
+            load_memory(input_file);
+            load_memory(os_file);
+            set_cpsr(OS);
+            set_rupt(0xff00);
+        }
+        else { // load os before user .o
+            load_memory(os_file);
+            load_memory(input_file);
+            set_cpsr(OS);
+            set_cpsr(U);
+            set_rupt(0xff00);
+        }
+    }
+    else { // just load the user's .o file
+        load_memory(input_file);
+        set_cpsr(U);
     }
 
     char *start = "pl";
